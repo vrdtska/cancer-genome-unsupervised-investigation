@@ -8,6 +8,8 @@ nav:
   - Problem Statement: problem_statement.md
   - Exploratory Data Analysis: eda.ipynb
   - Feature Engineering: feature_engineering.ipynb
+  - Model Construction and Result Interpretation: model_const_interpretation.ipynb
+  - Discussion and Conclusion: conclusions_&_discussion.md
 
 theme:
   name: material
