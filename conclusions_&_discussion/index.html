@@ -1,0 +1,596 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="TCGA Earned">
+      
+      
+        <meta name="author" content="Santiago López Cervantes">
+      
+      
+      
+        <link rel="prev" href="../model_const_interpretation/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Discussion and Conclusion - Glioblastoma Unsupervised Learning Investigation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#discussion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Glioblastoma Unsupervised Learning Investigation" class="md-header__button md-logo" aria-label="Glioblastoma Unsupervised Learning Investigation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Glioblastoma Unsupervised Learning Investigation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Discussion and Conclusion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Glioblastoma Unsupervised Learning Investigation" class="md-nav__button md-logo" aria-label="Glioblastoma Unsupervised Learning Investigation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Glioblastoma Unsupervised Learning Investigation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../problem_statement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Problem Statement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exploratory Data Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feature_engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../model_const_interpretation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Construction and Comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discussion and Conclusion
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discussion and Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-the-reference-study" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary of the Reference Study
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodological-similarities-and-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methodological Similarities and Differences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results-comparison-and-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results Comparison and Synthesis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-the-reference-study" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary of the Reference Study
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodological-similarities-and-differences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methodological Similarities and Differences
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#results-comparison-and-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results Comparison and Synthesis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="discussion">Discussion</h1>
+<p>To contextualize the findings of this pipeline, the results were compared against one of the foundational Glioblastoma molecular study: <em>"Integrated genomic analysis identifies clinically relevant subtypes of glioblastoma characterized by abnormalities in PDGFRA, IDH1, EGFR, and NF1"</em> (Verhaak et al., 2010).</p>
+<h2 id="summary-of-the-reference-study">Summary of the Reference Study</h2>
+<p>Verhaak et al. utilized multidimensional genomic data from The Cancer Genome Atlas (TCGA) to classify Glioblastoma multiforme (GBM) into distinct molecular subtypes. By applying unsupervised consensus clustering to gene expression data, the authors established four transcriptional subtypes: <em>Proneural, Neural, Classical, and Mesenchymal</em>. Their objective was to provide a framework for understanding intratumoral heterogeneity and to guide future targeted therapeutic strategies.</p>
+<h2 id="methodological-similarities-and-differences">Methodological Similarities and Differences</h2>
+<ul>
+<li><strong>Similarities</strong>: The core philosophy of both their pipelines and the present study pipelines are similar. Both studies relied on unsupervised clustering methodologies (Hierarchical agglomerative approaches) to partition patient cohorts without prior clinical bias. Furthermore, both pipelines empirically evaluated various values of K using internal validation heuristics, arriving at the similar conclusions: the optimal mathematical and biological division of GBM transcriptomics is K=4 clusters. Both studies also utilized differential expression analysis to extract defining genetic signatures for the resulting clusters. </li>
+<li><strong>Differences</strong>: The primary difference lies in the data acquisition technology and feature reduction. Verhaak et al. primarily relied on older gene expression microarray platforms (Affymetrix and Agilent, 2010). In contrast, this project utilized modern, high-resolution bulk RNA-sequencing (STAR-TPM) data, providing a more precise quantification of transcript abundance. Additionally, where Verhaak utilized multi-omics integration (combining RNA with Copy Number Variations and somatic mutations), this pipeline strictly isolated the transcriptomic variance using Principal Component Analysis (PCA) prior to clustering, proving that RNA-level expression alone is somewhat sufficient to drive distinct geometric partitioning.</li>
+</ul>
+<h2 id="results-comparison-and-synthesis">Results Comparison and Synthesis</h2>
+<p>The clinical and biological results of this project align well with the Verhaak study. Verhaak noted massive transcriptomic heterogeneity between the subtypes, defining groups by hyperactive gene expressions —a finding similar to this project's identification of Subtype 0 as a metabolically hyperactive state driven by genes like TFAM and KEAP1. Most importantly, both studies arrived at a  clinical conclusion regarding treatment efficacy. Verhaak demonstrated that while the molecular origins of the tumors vary wildly, the overall prognosis remains devastating. This result is similar to the present project's clinical phenotype data comparison step, which revealed an almost identical median overall survival (357 days vs. 360 days) between two highly distinct molecular cohorts. Both studies ultimately conclude that Glioblastoma's molecular heterogeneity mandates the development of subtype-specific therapies rather than generalized treatment protocols.</p>
+<h1 id="final-conclusions">Final Conclusions</h1>
+<h2 id="limitations-of-the-study">Limitations of the Study</h2>
+<p>While the pipeline successfully identified distinct transcriptomic profiles, several limitations must be acknowledged. First, dropping the rare outlier clusters (N=5 and N=1) was a statistical necessity to preserve the power of the Mann-Whitney test, but it means the rarest Glioblastoma phenotypes were excluded from biomarker discovery. Second, the use of bulk RNA-seq data measures the average expression of millions of cells. Tumors are highly heterogeneous, meaning healthy tissue or immune cell infiltration within the bulk sample could dilute the specific signatures of the cancer cells.</p>
+<h2 id="future-improvements-and-extensions">Future Improvements and Extensions</h2>
+<p>Future iterations of this pipeline could incorporate diverse gene expression sequence normalized data to give insight into GBM tumor heterogeneity. Additionally, performing Gene Set Enrichment Analysis (GSEA) would elevate the current findings by mapping the individual biomarkers (like TFAM and KEAP1) into broader biochemical pathways. Finally, integrating multi-omics data—such as DNA methylation and somatic mutation data—alongside the RNA-seq clusters would provide a wider view of the mechanisms driving these subtypes, such as was done in the study previously discussed by Verhaak et al.</p>
+<h2 id="learnings-regarding-data-structure">Learnings Regarding Data Structure</h2>
+<p>This analysis provided profound insights into the behavior of high-dimensional biological data. The presence of massive class imbalance (121 patients in Subtype 0 vs. 1 in Subtype 3) initially appeared as an algorithmic flaw but was ultimately recognized as a reflection of true biological reality and the limitations of the low sample size of the dataset; tumor subtypes do not exist in equal proportions. Furthermore, the dimensionality reduction phase demonstrated that the vast majority of gene expression variance is driven by a small subset of genes, while the differential expression phase revealed the challenge of "unknown genomic data"—highly active sequence fragments that remain unannotated or deprecated in modern databases, such as was seen in the comparison of the present dataset with the <code>mygene dataset</code>.</p>
+<h2 id="real-world-clinical-connection">Real-World Clinical Connection</h2>
+<p>Ultimately, the objective of bioinformatic data science is to improve patient outcomes. The discovery that Subtype 0 operates as a hyperactive state (driven by TFAM and KEAP1 gene expressions) while Subtype 1 remains repressed in samples proves that Glioblastoma is functionally multiple distinct diseases. However, the survival analysis revealed a median overall survival of ~360 days for both cohorts. This parity is the most critical real-world takeaway: generalized, standard-of-care treatments for Glioblastoma are currently failing across all patients with inherently different Glioblastoma subtypes. The unique biomarkers isolated in this study highlight the urgent clinical necessity to abandon broad-spectrum chemotherapies and steer toward targeted, personalized metabolic therapy.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Verhaak, R. G., Hoadley, K. A., Purdom, E., Wang, V., Qi, Y., Wilkerson, M. D., ... &amp; Cancer Genome Atlas Research Network. (2010). Integrated genomic analysis identifies clinically relevant subtypes of glioblastoma characterized by abnormalities in PDGFRA, IDH1, EGFR, and NF1. Cancer Cell, 17(1), 98–110. https://doi.org/10.1016/j.ccr.2009.12.020</li>
+<li>Chicco, D. (2025). An easy guide to the Davies-Bouldin index for unsupervised internal clustering evaluation. Discover Computing, 1. https://www.researchgate.net/publication/403917325_An_easy_guide_to_the_Davies-Bouldin_index_for_unsupervised_internal_clustering_evaluation</li>
+<li>Garg, V. K., &amp; Kalai, A. T. (2016). Meta-Unsupervised-Learning: A supervised approach to unsupervised learning. arXiv preprint arXiv:1612.09030. https://arxiv.org/abs/1612.09030</li>
+<li>SciPy. (2019). scipy.cluster.hierarchy.linkage. SciPy v1.16.1 Reference Guide. Retrieved May 7, 2026, from https://docs.scipy.org/doc/scipy-1.16.1/reference/generated/scipy.cluster.hierarchy.linkage.html</li>
+<li>Hebei Key Laboratory of Precise Diagnosis and Treatment of Glioma. (2024). Comprehensive understanding of glioblastoma molecular phenotypes: classification, characteristics, and transition. Cancer Biology &amp; Medicine. PubMed Central. https://pmc.ncbi.nlm.nih.gov/articles/PMC11131044/</li>
+<li>Doyle, M. (n.d.). Visualization of RNA-Seq results with Volcano Plot. Galaxy Training Network. Retrieved May 7, 2026, from https://training.galaxyproject.org/training-material/topics/transcriptomics/tutorials/rna-seq-viz-with-volcanoplot/tutorial.html</li>
+<li>Verhaak, R. G., Hoadley, K. A., Purdom, E., Wang, V., Qi, Y., Wilkerson, M. D., ... &amp; Cancer Genome Atlas Research Network. (2010). Integrated genomic analysis identifies clinically relevant subtypes of glioblastoma characterized by abnormalities in PDGFRA, IDH1, EGFR, and NF1. Cancer Cell, 17(1), 98–110. https://doi.org/10.1016/j.ccr.2009.12.020</li>
+<li>Zhao, S., Ye, Z., &amp; Stanton, R. (2020). Misuse of RPKM or TPM normalization when comparing across samples and sequencing protocols. RNA, 26(8), 903–909. https://doi.org/10.1261/rna.074922.120</li>
+<li>National Cancer Institute. (n.d.). mRNA Analysis Pipeline. Genomic Data Commons Documentation. Retrieved May 7, 2026, from https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
